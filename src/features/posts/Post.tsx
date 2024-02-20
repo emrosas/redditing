@@ -38,15 +38,17 @@ function Post({
             <h2 className=" text-xl font-medium">{main}</h2>
             <p className="font-light leading-loose line-clamp-3">{extra}</p>
           </div>
-          {thumbnail ? (
-            <img
-              src={thumbnail}
-              alt=""
-              className="rounded-lg w-24 h-24 bg-cover object-cover"
-            />
-          ) : (
-            <div className="w-24 h-24 bg-orange-200 bg-opacity-25 rounded-lg" />
-          )}
+          {thumbnail &&
+            !thumbnail.startsWith("https://external-preview.redd.it/") &&
+            thumbnail !== "default" &&
+            thumbnail !== "self" &&
+            thumbnail !== "image" && (
+              <img
+                src={thumbnail}
+                alt=""
+                className="rounded-lg w-24 h-24 bg-cover object-cover"
+              />
+            )}
         </div>
       </div>
     </li>
