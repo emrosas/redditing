@@ -1,3 +1,5 @@
+import MessageIcon from "../../icons/MessageIcon";
+
 interface PostProps {
   main: string;
   extra: string;
@@ -22,16 +24,29 @@ function Post({
       className={`flex gap-8 py-8 border-b border-orange-900 border-opacity-25 ${
         isLoader && "opacity-25"
       }`}>
-      <div className="flex flex-col gap-4 mt-4">
-        <div className="h-4 w-4 bg-orange-400 bg-opacity-25" />
-        <div className="h-4 w-4 bg-orange-400 bg-opacity-25" />
-      </div>
       <div className="flex flex-col flex-grow gap-4">
         <div className="flex gap-4 items-center">
-          <div className="h-8 w-8 bg-orange-200 rounded-full border border-orange-900 border-opacity-50" />
-          <h3 className="font-semibold text-base">{subreddit}</h3>
-          <span className="opacity-35 text-sm">{time}</span>
-          <span className="opacity-35 text-sm">C: {numComments}</span>
+          <h3 className="font-semibold text-base bg-orange-400 bg-opacity-25 rounded-lg px-4 py-1">
+            {subreddit}
+          </h3>
+          <div className="flex gap-2 items-center opacity-35 text-sm">
+            <svg
+              className="size-4"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill="currentColor"
+                d="M19 3H5v2H3v14h2v2h14v-2h2V5h-2zm0 2v14H5V5zm-8 2h2v6h4v2h-6z"
+              />
+            </svg>
+            <span>{time}</span>
+          </div>
+          <div className="flex gap-2 items-center opacity-35 text-sm">
+            <MessageIcon addClass="size-4" />
+            <span>{numComments}</span>
+          </div>
         </div>
         <div className="flex gap-4 justify-between w-full">
           <div className="flex flex-col gap-2">
